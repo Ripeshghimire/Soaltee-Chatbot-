@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 responses = [
-   " Hi! Welcome to the Soaltee Hotels and Resorts Ask me your queries about The Soaltee Hotels and Resorts.",
+   " Hi! Welcome to the Soaltee Hotels and Resorts Ask me your queries about The `Soaltee `Hotels and Resorts.",
     "The Soaltee Kathmandu is located at Tahachal, Kathmandu, Nepal, with a phone number: +977-1-4273999 and email: info@soaltee.com.",
     "The brands of Soaltee Hotels are: 1. The Soaltee, Kathmandu 2. Soaltee Westend Premier, Nepalgunj 3. Soaltee Westland Resort, Chitwan 4. Soaltee Westend, Itahari.",
     "Services provided by Soaltee include: - Exceptional Experience - Best Price Guarantee - Bespoke Luxury - Exquisite Dining - Captivating Events - Immersive Wellness.",
@@ -27,7 +27,7 @@ responses = [
     "Hotel rooms at Soaltee include: - Club Room - Executive Suite - Deluxe Room - Accessible Room - Classic Heritage - Executive Room - Regal Suite - Presidential Suite.",
     "Restaurants at Soaltee include: - Sunrise Restaurant (Lobby, serving breakfast, brunch, lunch, dinner, dessert) - Sunset Bar (Lobby, open from 10:00 AM to 10:45 PM) - Coffee Lounge (Lobby, open from 10:00 AM to 10:00 PM) - Golden Terrace - All Day Dining (Lobby Level) - Bao Xuan - Flavors of China (Lobby Level).",
     "Soaltee provides well-equipped conference rooms and health clubs with fitness centers, massages, steam, sauna, and mantra spas.",
-    "The price of hotel rooms varies; check the reservation page for specific room rates.",
+   " Hi! Welcome to the Soaltee Hotels and Resorts Ask me your queries about The Soaltee Hotels and Resorts.",
     "Breakfast and dinner are included in the hotel price.",
     "The Soaltee, a Nepali brand established in 1966, is a pioneer in the hospitality industry. They are known for their authentic and personalized cultural experiences, rooted in the country's rich heritage and delivered with heartfelt passion.",
     "The address of The Soaltee: Tahachal, Kathmandu, Nepal, 44600 Kathmandu, Nepal. Soaltee Westend Premier, Nepalgunj. Soaltee Westland Resort, Chitwan. Soaltee Westend, Itahari.",
@@ -88,7 +88,7 @@ async def similarity(request:Request):
     # similarity = cosine_similarity([question],embeddings).reshape(-1)
     # similar_position,similarity_value = np.argmax(similarity), similarity.max()
     similar_text = {'similar_text': responses[similar_position], 'cosine_similarity': float(highest_cossine_value)}
-    if highest_cossine_value > 0.5:
+    if highest_cossine_value > 0.45:
         return JSONResponse(content = similar_text)
     else:
         return JSONResponse(content="ask similar question")

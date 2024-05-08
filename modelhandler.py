@@ -19,3 +19,4 @@ def get_similar_response(question,embedding,model):
     most_similar_index= np.argmax(cosine_sim)
     highest_cosine_similarity = cosine_sim.max()
     return most_similar_index, highest_cosine_similarity
+
